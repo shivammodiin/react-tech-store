@@ -1,0 +1,208 @@
+:root {
+  --primaryColor: #5fb7ea;
+  --primaryRGBA: rgba(0, 0, 0, 0.3);
+  --mainGrey: #fafafa;
+  --darkGrey: #5f5e5e;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainTransition: all 0.3 ease-in-out;
+  --mainSpacing: 0.3rem;
+}
+
+.text-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+}
+
+.text-main {
+  color: var(--primaryColor);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: var(--mainGrey) !important;
+  color: var(--mainBlack);
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 1rem 1.5rem;
+  background: var(--mainGrey);
+  z-index: 1;
+  border-bottom: 3px solid var(--primaryColor);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-cart {
+  position: relative;
+}
+
+.cart-items {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  font-size: 0.85rem;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 0 5px;
+  border-radius: 50%;
+}
+
+.main-link {
+  padding: 0.5rem 1rem;
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  outline: 2px solid var(--primaryColor);
+  outline-offset: 4px;
+  border: none;
+  transition: var(--mainTransition);
+}
+
+.main-link:hover {
+  background: var(--darkGrey);
+  color: var(--primaryColor);
+  text-decoration: none;
+  outline: 2px solid var(--darkGrey);
+}
+
+.footermain {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--mainWhite);
+}
+
+.footermain .mywebsite {
+  font-weight: 600;
+  color: rgb(226, 226, 19);
+
+  transition: all 0.3s linear;
+}
+
+.footermain .mywebsite:hover {
+  text-decoration: none;
+  color: rgba(55, 219, 22, 0.616);
+}
+
+.social-icons .icon {
+  font-size: 1.5rem;
+  color: var(--mainWhite);
+  transition: all 0.3s linear;
+}
+
+.social-icons .icon:hover {
+  color: var(--primaryColor);
+  transform: scale(1.25);
+}
+
+.icon-servicess {
+  font-size: 3rem;
+  color: #ffdd07f2;
+}
+
+.service-main {
+  border-top: 2px solid yellow;
+  border-bottom: 2px solid yellow;
+}
+
+.service-text {
+  text-align: justify;
+}
+
+.sevice-title {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.product .card {
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  transition: all 0.3s linear;
+}
+
+.product .card:hover {
+  box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.product .card:hover .card-image-top {
+  transform: scale(1.15);
+  opacity: 0.2;
+}
+
+.card-image-top img {
+  transition: all 0.3s linear;
+  height: 220px;
+}
+
+.product .img-container {
+  position: relative;
+}
+
+.product .product-icon {
+  transition: all 0.3s linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  /* padding: -50 px; */
+}
+
+.product .icon {
+  transition: all 0.3s linear;
+  margin-right: 0.75rem;
+}
+
+.product .icon:hover {
+  color: yellow;
+  transform: scale(1.25);
+}
+
+.product .icon {
+  font-size: 2.5rem;
+  padding: 0.2rem;
+  color: var(--primaryColor);
+  background: var(--mainBlack);
+
+  border-radius: 0.5rem;
+}
+
+.product-icon a {
+  margin-right: 1.5rem !important;
+
+}
+
+.product .card:hover .product-icon {
+  opacity: 1;
+}
+
+.product .card-body {
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+  .card-image-top {
+    height: 280px;
+  }
+}
