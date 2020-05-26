@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { ProductContext } from "../context/context";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export class SideCart extends Component {
   static contextType = ProductContext;
 
   render() {
-    const { Links, cartOpen, handleCart } = this.context;
+    const { cartOpen, handleCart } = this.context;
 
     return (
       <CartWrapper show={cartOpen} onClick={handleCart}>

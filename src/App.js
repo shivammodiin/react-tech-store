@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+// import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./pages/AboutPage";
 import SingleProduct from "./pages/SingleProductPage";

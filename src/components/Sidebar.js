@@ -7,13 +7,13 @@ export class Sidebar extends Component {
   static contextType = ProductContext;
 
   render() {
-    const { Links, sidebarOpen, handleSidebar } = this.context;
+    const { links, sidebarOpen, handleSidebar } = this.context;
 
     return (
       <SidebarWrapper show={sidebarOpen}>
         <div className="sidebar-toggle">
           <ul>
-            {Links.map((link) => {
+            {links.map((link) => {
               return (
                 <li key={link.id}>
                   <Link
