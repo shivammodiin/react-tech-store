@@ -39,7 +39,7 @@ export class SingleProductPage extends Component {
               <div className="col-10 mx-auto my-3 col-sm-8 col-md-6">
                 <h5 className="text-title mb-4">model :{title}</h5>
                 <h5 className="text-capitalize text-muted mb-4">
-                  company :{company}
+                  company :${company}
                 </h5>
                 <h5 className="text-main text-capitalize mb-4">
                   price :${price}
