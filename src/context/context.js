@@ -17,6 +17,12 @@ class ProductProvider extends Component {
     featuredProducts: [],
     singleProducts: {},
     loading: true,
+    price: 0,
+    search: "",
+    max: 0,
+    min: 0,
+    company: "all",
+    shipping: false,
   };
 
   componentDidMount() {
@@ -35,6 +41,13 @@ class ProductProvider extends Component {
       return item.featured === true;
     });
 
+    let maxPrice = Math.max(
+      ...storeProducts.map((item) => {
+        return item.price;
+      })
+    );
+    // console.log(maxPrice);
+
     this.setState(
       {
         storeProducts,
@@ -43,6 +56,8 @@ class ProductProvider extends Component {
         cart: this.getStorageCart(),
         singleProduct: this.getStorageProduct(),
         loading: false,
+        price: maxPrice,
+        max: maxPrice,
       },
       () => {
         this.addTotals();
@@ -75,6 +90,8 @@ class ProductProvider extends Component {
     });
     subTotal = parseFloat(subTotal.toFixed(2));
     let tax = subTotal * 0.2;
+    tax = parseFloat(tax.toFixed(2));
+
     let total = subTotal + tax;
     total = parseFloat(total.toFixed(2));
     return { cartItems, subTotal, tax, total };
@@ -155,6 +172,132 @@ class ProductProvider extends Component {
   openCart = () => {
     this.setState({ cartOpen: true });
   };
+
+  increment = (id) => {
+    let tempCart = [...this.state.cart];
+    const cartItem = tempCart.find((item) => {
+      return item.id === id;
+    });
+    // console.log(tempCart);
+    // console.log({ ...tempCart });
+    cartItem.count++;
+    cartItem.total = cartItem.count * cartItem.price;
+    cartItem.total = parseFloat(cartItem.total.toFixed(2));
+    this.setState(
+      {
+        cart: [...tempCart],
+      },
+      () => {
+        this.addTotals();
+        this.syncStorage();
+      }
+    );
+  };
+
+  decrement = (id) => {
+    let tempCart = [...this.state.cart];
+    const cartItem = tempCart.find((item) => {
+      return item.id === id;
+    });
+
+    cartItem.count--;
+
+    if (cartItem.count === 0) {
+      this.removeItem(id);
+    } else {
+      cartItem.total = cartItem.count * cartItem.price;
+      cartItem.total = parseFloat(cartItem.total.toFixed(2));
+      this.setState(
+        {
+          cart: [...tempCart],
+        },
+        () => {
+          this.addTotals();
+          this.syncStorage();
+        }
+      );
+    }
+  };
+  removeItem = (id) => {
+    let tempItem = [...this.state.cart];
+    const cartItems = tempItem.filter((item) => {
+      return item.id !== id;
+    });
+
+    this.setState(
+      {
+        cart: cartItems,
+      },
+      () => {
+        this.addTotals();
+        this.syncStorage();
+      }
+    );
+  };
+  clearCart = () => {
+    this.setState(
+      {
+        cart: [],
+      },
+      () => {
+        this.addTotals();
+        this.syncStorage();
+      }
+    );
+  };
+
+  handleChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+
+    this.setState(
+      {
+        [name]: value,
+      },
+      this.sortData
+    );
+  };
+
+  sortData = () => {
+    let {
+      storeProducts,
+      filteredProducts,
+      price,
+      search,
+      max,
+      min,
+      company,
+      shipping,
+    } = this.state;
+
+    let tempProduct = [...storeProducts];
+
+    if (company !== "all") {
+      tempProduct = tempProduct.filter((item) => item.company === company);
+    }
+
+    if (search.length > 0) {
+      tempProduct = tempProduct.filter((item) => {
+        let searchData = search.toLowerCase();
+        let itempTitle = item.title.toLowerCase();
+        return itempTitle.includes(searchData);
+      });
+    }
+
+    if (price !== max) {
+      tempProduct = tempProduct.filter((item) => item.price <= price);
+    }
+
+    if (shipping) {
+      tempProduct = tempProduct.filter((item) => item.freeShipping === true);
+    }
+
+    this.setState({
+      filteredProducts: tempProduct,
+    });
+  };
+
   render() {
     return (
       <ProductContext.Provider
@@ -167,6 +310,12 @@ class ProductProvider extends Component {
           addToCart: this.addToCart,
           getSingleProduct: this.getSingleProduct,
           setSingleProduct: this.setSingleProduct,
+          increment: this.increment,
+          decrement: this.decrement,
+          clearCart: this.clearCart,
+          removeItem: this.removeItem,
+          handleChange: this.handleChange,
+          sortData: this.sortData,
         }}
       >
         {this.props.children}

@@ -188,7 +188,6 @@ body {
 
 .product-icon a {
   margin-right: 1.5rem !important;
-
 }
 
 .product .card:hover .product-icon {
@@ -205,4 +204,62 @@ body {
   .card-image-top {
     height: 280px;
   }
+}
+
+.filter-container {
+  padding: 5rem 0;
+}
+
+.filter-form {
+  width: 70vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 40px;
+}
+
+.form-group {
+  text-transform: capitalize;
+}
+
+.form-group label {
+  display: block;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  background: transparent;
+  font-size: 1.3rem;
+}
+
+.icon-cart {
+  font-size: 1.25rem;
+}
+
+
+.cart-icon {
+  transition: all .2s ease-in-out;
+}
+
+.cart-icon:hover {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+
+
+.text-primary.cart-icon:hover {
+  color: green !important;
+
+}
+
+.single-extra label {
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 2.3rem;
+  margin-left: 0.5rem;
 }
