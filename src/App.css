@@ -14,12 +14,15 @@
   .single-product {
     width: 300px !important;
   }
+<<<<<<< HEAD
 
   .product .product-icon {
     opacity: 1;
     top: 90%;
 
   }
+=======
+>>>>>>> 6be3308f7680a819f7c6a9acf80827aba94f1e27
 }
 
 .text-title {
