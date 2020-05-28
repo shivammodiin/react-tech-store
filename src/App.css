@@ -9,16 +9,16 @@
   --mainSpacing: 0.3rem;
 }
 
-
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .single-product {
     width: 300px !important;
   }
+}
 
+@media (max-width: 1100px) {
   .product .product-icon {
-    opacity: 1;
-    top: 90%;
-
+    opacity: 1 !important;
+    top: 90% !important;
   }
 }
 
@@ -253,9 +253,8 @@ body {
   font-size: 1.25rem;
 }
 
-
 .cart-icon {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .cart-icon:hover {
@@ -263,14 +262,9 @@ body {
   cursor: pointer;
 }
 
-
-
 .text-primary.cart-icon:hover {
   color: green !important;
-
 }
-
-
 
 .single-extra label {
   display: inline-block;
