@@ -31,16 +31,22 @@ export class CartTotal extends Component {
         <h3>subtotal : ${cartSubTotal}</h3>
         <h3>tax : ${cartTax}</h3>
         <h3>total : ${cartTotal}</h3>
-        <h2 className="text-success">
-          Pay Now:-
-          <PayPal
-            className="main-link"
-            history={this.props.history}
-            cartTotal={cartTotal}
-            clearCart={clearCart}
-          />
-        </h2>
-        <span className="text-muted">shivamtechstore@gmail.com</span>
+        {cart.length === 0 ? (
+          " "
+        ) : (
+          <>
+            <h2 className="text-success">
+              Pay Now:-
+              <PayPal
+                className="main-link"
+                history={this.props.history}
+                cartTotal={cartTotal}
+                clearCart={clearCart}
+              />
+            </h2>
+            <span className="text-muted">shivamtechstore@gmail.com</span>{" "}
+          </>
+        )}
       </div>
     );
   }
