@@ -5,7 +5,7 @@ export default class payPal extends React.Component {
   render() {
     const onSuccess = (payment) => {
       // Congratulation, it came here means everything's fine!
-      alert(`Your Payment of  ${this.props.cartTotal} is Successful `);
+      alert(`Your Payment of  ${this.props.cartTotal}$ is Successful `);
       this.props.clearCart();
       // console.log(payment);
       this.props.history.push("/");

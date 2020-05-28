@@ -33,8 +33,12 @@ export class SingleProductPage extends Component {
         <section className="py-5">
           <div className="container">
             <div className="row">
-              <div className="col-10 mx-auto my-3 col-sm-8 col-md-6">
-                <img src={image} alt={`product ${title}`} />
+              <div className="col-10 mx-auto  my-3 col-sm-8 col-md-6">
+                <img
+                  src={image}
+                  className="single-product"
+                  alt={`product ${title}`}
+                />
               </div>
               <div className="col-10 mx-auto my-3 col-sm-8 col-md-6">
                 <h5 className="text-title mb-4">model :{title}</h5>

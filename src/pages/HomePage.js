@@ -18,6 +18,7 @@ export class HomePage extends Component {
           </Link>
         </Hero>
         <Services />
+
         <Featured />
       </>
     );

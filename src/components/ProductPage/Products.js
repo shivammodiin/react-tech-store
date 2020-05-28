@@ -3,11 +3,16 @@ import { ProductContext } from "../../context/context";
 import Title from "../Title";
 import Product from "../Product";
 import ProductFilter from "./ProductFilter";
+import Loading from "../Loading";
 
 export class Products extends Component {
   static contextType = ProductContext;
   render() {
-    const { filteredProducts } = this.context;
+    const { filteredProducts, storeProducts } = this.context;
+
+    if (storeProducts.length === 0) {
+      return <Loading />;
+    }
     return (
       <section className="py-5">
         <div className="container">

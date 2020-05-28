@@ -9,6 +9,19 @@
   --mainSpacing: 0.3rem;
 }
 
+
+@media (max-width:767px) {
+  .single-product {
+    width: 300px !important;
+  }
+
+  .product .product-icon {
+    opacity: 1;
+    top: 90%;
+
+  }
+}
+
 .text-title {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
@@ -256,6 +269,8 @@ body {
   color: green !important;
 
 }
+
+
 
 .single-extra label {
   display: inline-block;
