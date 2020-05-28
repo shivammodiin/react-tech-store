@@ -15,12 +15,7 @@ export class SideCart extends Component {
           {cart.map((item) => {
             return (
               <li key={item.id} className="cart-item items-cart mb-4">
-                <img
-                  width="50"
-                  height="50"
-                  src={`../${item.image}`}
-                  alt="cart item"
-                />
+                <img width="50" height="50" src={item.image} alt="cart item" />
 
                 <div className="ml-4">
                   <h6 className="text-uppercase">{item.title}</h6>

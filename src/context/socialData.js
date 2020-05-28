@@ -11,11 +11,11 @@ export const socialIcons = [
   {
     id: 2,
     icon: <FaTwitter className="icon" />,
-    url: "https://www.twitter.com/shivamodi456",
+    url: "https://www.twitter.com/shivammodi456",
   },
   {
     id: 3,
     icon: <FaLinkedin className="icon" />,
-    url: "https://www.linkedin.com/shivamodi456",
+    url: "https://www.linkedin.com/in/shivammodi456/",
   },
 ];

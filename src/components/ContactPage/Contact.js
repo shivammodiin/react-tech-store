@@ -12,7 +12,7 @@ class Contact extends Component {
               <Title title="contact us" />
               <form
                 className="mt-5"
-                action="https://formspree.io/xbjzgdyg"
+                action={`https://formspree.io/${process.env.REACT_APP_MAIL_ID}`}
                 method="POST"
               >
                 <div className="form-group">

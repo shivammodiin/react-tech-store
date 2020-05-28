@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ProductContext } from "../../context/context";
 import { Link } from "react-router-dom";
+import PayPal from "./payPalBtn";
 
 export class CartTotal extends Component {
   static contextType = ProductContext;
@@ -30,6 +31,12 @@ export class CartTotal extends Component {
         <h3>subtotal : ${cartSubTotal}</h3>
         <h3>tax : ${cartTax}</h3>
         <h3>total : ${cartTotal}</h3>
+        <PayPal
+          className="main-link"
+          history={this.props.history}
+          cartTotal={cartTotal}
+          clearCart={clearCart}
+        />
       </div>
     );
   }
