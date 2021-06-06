@@ -6,7 +6,7 @@ function Hero({ img, max, children, title }) {
   return (
     <HeroWrapper max={max} img={img}>
       <div className="banner">
-        <h1 className="title">{title}</h1>
+        <h1 className="title mytitle">{title}</h1>
         {children}
       </div>
     </HeroWrapper>
